@@ -25,6 +25,7 @@
 
       var time_1 = "04:02:57";
       var time_2 = "03:35:44";
+      var time_3 = "03:28:18";
 
       var padding = "00000000";
 
@@ -87,6 +88,8 @@
       draw(to_binary(time_1), 10);
 
       draw(to_binary(time_2), 120);
+
+      draw(to_binary(time_3), 240);
 
       $('body').append('<img src="'+ canvas.toDataURL() +'" />');
 
