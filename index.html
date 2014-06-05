@@ -25,7 +25,8 @@
 
       var time_1 = "04:02:57";
       var time_2 = "03:35:44";
-      var time_3 = "03:28:18";
+      //var time_3 = "03:28:18";
+      var time_3 = new String(12498*1000)
 
       var padding = "00000000";
 
@@ -50,20 +51,20 @@
       var draw = function (sequence, start_y) {
         console.log(sequence);
 
-        var x = 10;
-        var y = start_y;
+        var x = 10+0.5;
+        var y = start_y+0.5;
 
         var width = 8;
-        var height = 100;
+        var height = 16;
 
         for (var i = 0; i < sequence.length; i++) {
           var s = sequence[i];
 
-          x = x+2;
+          //x = x+2;
 
           switch (s) {
             case "1":
-              //ctx.strokeRect(x, y, width, height);
+              ctx.strokeRect(x, y, width, height);
               ctx.fillRect(x, y, width, height);
               x = x + width;
             break;
@@ -73,11 +74,12 @@
               ctx.moveTo(x, y);
               ctx.lineTo(x, y+height);
               ctx.stroke();
+              //ctx.strokeRect(x, y, width, height);
               x = x + width;
             break;
 
             case " ":
-              x = x + width*2
+              x = x + width
             break;
           }
 
@@ -87,9 +89,9 @@
 
       draw(to_binary(time_1), 10);
 
-      draw(to_binary(time_2), 120);
+      draw(to_binary(time_2), 30);
 
-      draw(to_binary(time_3), 240);
+      draw(to_binary(time_3), 50);
 
       $('body').append('<img src="'+ canvas.toDataURL() +'" />');
 
