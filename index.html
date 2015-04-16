@@ -25,12 +25,14 @@
 
       var time_1 = "04:02:57";
       var time_2 = "03:35:44";
-      //var time_3 = "03:28:18";
-      var time_3 = new String(12498*1000)
+      var time_3 = "03:28:18";
+      //var time_3 = new String(12498*1000)
+      var time_4 = "03:49:02";
 
       var padding = "00000000";
 
       var to_binary = function (string) {
+        string = string.replace(/:/g, ''); // no colons?
         var out = [];
         for (var i = 0; i < string.length; i++) {
           var compact = string.charCodeAt(i).toString(2)
@@ -70,10 +72,10 @@
             break;
 
             case "0":
-              //ctx.strokeRect(x, y, width, height);
-              ctx.moveTo(x, y);
-              ctx.lineTo(x, y+height);
-              ctx.stroke();
+              ctx.strokeRect(x, y, width, height);
+              // ctx.moveTo(x, y);
+              // ctx.lineTo(x, y+height);
+              // ctx.stroke();
               //ctx.strokeRect(x, y, width, height);
               x = x + width;
             break;
@@ -92,6 +94,8 @@
       draw(to_binary(time_2), 30);
 
       draw(to_binary(time_3), 50);
+
+      draw(to_binary(time_4), 70);
 
       $('body').append('<img src="'+ canvas.toDataURL() +'" />');
 
